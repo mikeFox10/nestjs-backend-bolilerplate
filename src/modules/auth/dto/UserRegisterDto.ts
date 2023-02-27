@@ -3,19 +3,17 @@ import {
   IsEmail,
   IsNotEmpty,
   IsOptional,
-  IsPhoneNumber,
   IsString,
   MinLength,
 } from 'class-validator';
-import { Column } from 'typeorm';
 
 import { Trim } from '../../../decorators/transforms.decorator';
 
 export class UserRegisterDto {
-  @ApiProperty()
   @IsString()
   @IsNotEmpty()
   @Trim()
+  @ApiProperty()
   readonly firstName: string;
 
   @ApiProperty()
@@ -37,8 +35,7 @@ export class UserRegisterDto {
   readonly password: string;
 
   @ApiProperty()
-  @Column()
-  @IsPhoneNumber()
   @IsOptional()
+  @IsString()
   phone: string;
 }

@@ -43,16 +43,8 @@ export class UserService {
     return queryBuilder.getOne();
   }
 
-  async createUser(
-    userRegisterDto: UserRegisterDto,
-    file: IFile,
-  ): Promise<UserEntity> {
+  async createUser(userRegisterDto: UserRegisterDto): Promise<UserEntity> {
     const user = this.userRepository.create(userRegisterDto);
-
-    if (file && !this.validatorService.isImage(file.mimetype)) {
-      throw new FileNotImageException();
-    }
-
     return this.userRepository.save(user);
   }
 

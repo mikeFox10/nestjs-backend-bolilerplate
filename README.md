@@ -18,6 +18,26 @@ cd my-new-project
 # 3. Install dependencies. (Make sure yarn is installed: https://yarnpkg.com/lang/en/docs/install)
 yarn
 
+# 4 Copy the configuration sample and configure environment variables 
+
+cp .env.sample .env
+
+```bash
+PORT=3000
+TRANSPORT_PORT=8080
+JWT_SECRET_KEY=rxPhglGJWPlOW596
+JWT_EXPIRATION_TIME=3600
+FALLBACK_LANGUAGE=en
+NATS_ENABLED=false
+ENABLE_ORMLOGS=true
+ENABLE_DOCUMENTATION=true
+# Database envioroment variables
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_USERNAME=postgres
+DB_PASSWORD=postgres
+DB_DATABASE=databasename
+```
 # 4. Run development server and open http://localhost:3000
 yarn start:dev
 
